@@ -127,9 +127,6 @@ def game_hash
       ]
     }
   }
-end
-
-# Write code here
 def get_players 
   game_hash.map {|meight , team|
    team[:players]
@@ -155,7 +152,7 @@ def num_points_scored(player_name)
   
 def shoe_size(player_name)
 get_players_by_name(player_name)[:shoe]
-    
+
 end
 
 def team_colors(team_name)
@@ -168,44 +165,6 @@ def team_colors(team_name)
 
 end
 end
-end
-
-def team_names
-  game_hash.map do |team, team_info|
-    team_info[:team_name]
-  end
-end
-
-def player_numbers(input)
-  output = []
-  game_hash.each do |team, team_info|
-    if team_info[:team_name] == input 
-      team_info.each do |key, value|
-        if key == :players
-          value.each do |player|
-          output.push(player[:number])
-          end
-        end
-      end
-    end
-  end
-  return output
-end
-
-
-def player_stats(input)
-  game_hash.each do |team, team_info|
-    team_info.each do |key, value|
-      if key == :players
-        value.each do |player|
-          if input == player[:player_name]
-           
-            return player
-          end
-        end
-      end
-    end
-  end
 end
 
 def big_shoe_rebounds
@@ -221,3 +180,4 @@ def big_shoe_rebounds
   end
   return rebounds
 end
+
